@@ -311,7 +311,14 @@ pub fn block_convert<F: Field>(
     let code_db = &builder.code_db;
     let rws = RwMap::from(&block.container);
     let by_address_rws = rws.table_assignments(false);
+    
+    log::debug!("before check_value()");
+    println!("before check_value()");
+    
     rws.check_value();
+
+    log::debug!("after check_value()");
+    println!("after check_value()");
 
     // get padding statistics data via BtreeMap
     // TODO we can implement it in more efficient version via range sum
